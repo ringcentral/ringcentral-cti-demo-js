@@ -181,18 +181,18 @@ $(function() {
 <pre><code class="javascript">        var Call = helpers.call();
     // This call may be repeated when needed, for example as a response to incoming Subscription
     platform.send(Call.loadRequest(null, {
-    query: { // this can be omitted
-    page: 1,
-    perPage: 10
-    }
-    })).then(function(response) {
-    console.log("RESPONSE_CALLS: " + response.text());
-    calls = Call.merge(calls, response.json().records); // safely merge existing active calls with new ones
-    t.populateCalls(calls);
-    }).catch(function(e) {
-    console.log("E_RESPONSE_CALL_LOG: " + e);
-    alert('Recent Calls Error: ' + e.message);
-    });
+        query: { // this can be omitted
+            page: 1,
+            perPage: 10
+        }
+        })).then(function(response) {
+            console.log("RESPONSE_CALLS: " + response.text());
+            calls = Call.merge(calls, response.json().records); // safely merge existing active calls with new ones
+            t.populateCalls(calls);
+        }).catch(function(e) {
+            console.log("E_RESPONSE_CALL_LOG: " + e);
+            alert('Recent Calls Error: ' + e.message);
+        });
 </code></pre>
 
               <p>The following is an example report with an optional Call Recording object:</p>
@@ -229,7 +229,7 @@ $(function() {
               <p>To retrieve call recordings you can simply add the access token to the uri provided or add the access token as a header. The URL method is shown below:</p>
 
 <pre><code class="javascript">var recordingUrl = call['recording']['contentUri'];
-    var recordingUrl = rcsdk.platform().createUrl(uri, {addToken: true});</code></pre>
+recordingUrl = rcsdk.platform().createUrl(uri, {addToken: true});</code></pre>
 
               <p>This approach can be used to batch download or individual streaming playback.</p>
 
